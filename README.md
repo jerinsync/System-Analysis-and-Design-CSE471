@@ -21,11 +21,7 @@ Our platform is designed to empower individuals to achieve their health and well
 
 
 ## To run the server
-### Have XAMPP, Django installed in order to operate the server.
-1. Download the entire file, then put it in the `htdocs` folder (localhost folder).
-2. Start `Apache` and `MySQl` in XAMPP.
-3. Go to phpmyadmin, by clicking on the `Admin` button next to the `MySQl` start button, create a database named `uniinfodesk` and import the SQL file (uniinfodesk.sql) into that database.
-4. In vscode, open the folder `Fitness and Nutrition platform` and then type `python manage.py runserver` in a new terminal. Run this command from project directory.
+1. In vscode, open the folder `Fitness and Nutrition platform/hello` and then type `python manage.py runserver` in a new terminal. Run this command from project directory (hello).
 
 #### Optional:
 
@@ -70,7 +66,5 @@ Support and FAQs.
 
 
 
-
-
 ### Contributors
-| https://github.com/jerinsync
+https://github.com/FaisalAhmed21 | https://github.com/ShafiurShuvo | https://github.com/NaziaMumtahina | https://github.com/jerinsync
