@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add Plan</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url("{% static 'login/images/fitness.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            padding-top: 70px;
+        }
+
+        .form-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: auto;
+            max-width: 600px;
+        }
+
+        .card {
+            margin: 0 auto; /* Ensures the card is centered */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    {% comment %} <li class="nav-item"><a href="/client-profile/" class="nav-link">Go back</a></li> {% endcomment %}
+                    <!-- <li class="nav-item"><a href="/trainer-plans/" class="nav-link">Plans</a></li> -->
+                    <li class="nav-item"><a href="/client-profile/" class="nav-link">Profile</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Workouts</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Diet Plans</a></li>
+                    <li class="nav-item"><a href="/bmi/" class="nav-link">BMI</a></li>
+                    <li class="nav-item"><a href="/workout/" class="nav-link">Tutorials</a></li>
+                    <li class="nav-item"><a href="/tracker/" class="nav-link">Nutrients</a></li>
+                    <li class="nav-item active"><a href="/discussion-client-view/" class="nav-link">Discussion Forum</a></li>
+                    <li class="nav-item"><a href="/support&faq/" class="nav-link">Support and FAQ's</a></li>
+                </ul>
+            </div>
+            <form id="logout-form" action="{% url 'logoutUser' %}" method="POST" style="display: none;">
+                {% csrf_token %}
+            </form>
+            <button type="button" class="btn btn-danger" onclick="document.getElementById('logout-form').submit();">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Content Section with Container -->
+    <div class="container">
+        <div style="background-color:aliceblue">
+			<center>
+				<h1> Issues that you are encountering. </h1>
+			</center>
+
+
+			<br />
+			{% for comp in complain %}
+			<div class=" p-3">
+				<div class="card">
+
+					<div class="card-header">
+						<h5 class="card-title">[Posted on - {{comp.datetime}}]</h5>
+						<small>Posted by {{comp.posted_by}} </small>
+					</div>
+
+					<div class="card-body">
+						<p class="card-text"> {{ comp.statement }} </p><br />
+
+						{% if comp.status == "resolved"%}
+						<small style="color:rgb(28, 199, 37)"> Do not worry! This issue has been resolved by
+							{{comp.resolved_by}} </small>
+
+						{% elif comp.status == "pending" %}
+						<small style="color:rgb(45, 147, 225)"> This issue has not been resolved yet. </small>
+
+						{% else %}
+						<small style="color: rgb(220, 22, 22);"> Unfortunately, a solution to this issue was not
+							possible. </small>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+
+			{% endfor %}
+
+		</div>
+
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
