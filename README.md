@@ -32,14 +32,23 @@ Commands that may be needed `pip install django-mathfilters` , `pip install djan
 ```
 Clients' usernames are:
 Username: nazia
-Pass: 1
+password: 1
 Username: shuvo
-Pass: 12345578p
+password: 12345578p
 
 
 Trainer username:
 apple
 password: applejuiceapple
+
+Owner username:
+username: aa
+password: 147852mm
+
+Admin:
+username: admin
+password: admin
+
 
 ```
 
